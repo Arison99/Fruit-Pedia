@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fruit-encyclopedia
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fruit-encyclopedia
+  template:
+    metadata:
+      labels:
+        app: fruit-encyclopedia
+    spec:
+      containers:
+      - name: fruit-encyclopedia
+        image: Sarah/fruit-encyclopedia:latest
+        ports:
+        - containerPort: 5000

@@ -1,0 +1,19 @@
+{% if fruits %}
+    <ul>
+    {% for fruit in fruits %}
+        <li class="fruit-card">
+            <h2>{{ fruit.name }}</h2>
+            <p>Family: {{ fruit.family }}</p>
+            <p>Order: {{ fruit.order }}</p>
+            <p>Genus: {{ fruit.genus }}</p>
+            <div class="nutrition-info">
+                <div class="nutrition-item">Calories: {{ fruit.nutritions.calories }}</div>
+                <div class="nutrition-item">Carbohydrates: {{ fruit.nutritions.carbohydrates }}</div>
+                <div class="nutrition-item">Protein: {{ fruit.nutritions.protein }}</div>
+            </div>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No fruits found.</p>
+{% endif %}

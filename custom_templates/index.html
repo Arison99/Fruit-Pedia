@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fruit Encyclopedia</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .search-container {
+            margin: 20px 0;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+        .fruit-card {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+        }
+        .nutrition-info {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .nutrition-item {
+            background-color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .loading {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fruit Encyclopedia</h1>
+    <div class="search-container">
+        <input type="text" 
+               name="q" 
+               placeholder="Search fruits by name, family, or genus..." 
+               hx-get="/search"
+               hx-trigger="keyup changed delay:500ms, search"
+               hx-target="#search-results"
+               hx-indicator=".loading">
+    </div>
+    
+    <div id="search-results">
+        {% include 'search_results.html' %}
+    </div>
+</body>
+</html>
